@@ -64,8 +64,8 @@ const Navbar = () => {
 
       {/* Mobile Nav (Slide Down with Animation) */}
       <div
-        className={`md:hidden absolute top-0 left-0 w-full h-[35vh] bg-white dark:bg-neutral-900 transform transition-transform duration-500 ease-in-out ${
-          isOpen ? "translate-y-0" : "-translate-y-full"
+        className={`md:hidden absolute top-0 left-0 w-full h-fit bg-white dark:bg-neutral-900 transform transition-transform duration-500 ease-in-out ${
+          isOpen ? "translate-y-0" : "-translate-y-[200%]"
         }`}
       >
         {/* Close Header */}
