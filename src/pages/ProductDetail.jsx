@@ -44,23 +44,23 @@ const ProductDetail = () => {
   if (!product) return <p>Loading...</p>;
 
   return (
-    <div className="flex flex-col md:flex-row gap-6">
+    <div className="flex flex-col pt-20 md:pt-0 md:flex-row gap-6">
       {/* Images */}
-      <div className="flex gap-3 overflow-x-auto mb-4">
+      <div className="flex gap-3 overflow-x-auto mb-4 overflow-hidden">
         {product.images?.map((img, idx) => (
           <img
             key={idx}
             src={img}
             alt={`${product.name}-${idx}`}
-            className="w-32 h-32 object-cover rounded border"
+            className="w-32 h-32 object-cover rounded border border-yellow-500"
           />
         ))}
       </div>
 
       {/* Product Info */}
       <div className="flex-1">
-        <h2 className="text-2xl font-bold mb-2">{product.name}</h2>
-        <p className="text-xl text-blue-600 mb-4">Rs. {product.price}</p>
+        <h2 className="text-2xl dark:text-yellow-600 font-bold mb-2">{product.name}</h2>
+        <p className="text-xl text-blue-600 dark:text-white mb-4">Rs. {product.price}</p>
         <p className="mb-4">{product.description}</p>
 
         {/* Size Selection */}
@@ -113,7 +113,7 @@ const ProductDetail = () => {
 
         <button
           onClick={handleAddToCart}
-          className="bg-green-600 text-white px-6 py-2 rounded"
+          className="bg-green-600 dark:bg-yellow-600 text-white px-6 py-2 rounded"
         >
           Add to Cart
         </button>

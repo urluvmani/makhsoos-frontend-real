@@ -11,13 +11,13 @@ const MyOrders = () => {
   if (orders.length === 0) return <p className="p-4">No orders placed yet.</p>;
 
   return (
-    <div className="p-4">
+    <div className="p-4 pt-20">
       <h2 className="text-2xl font-bold mb-4">My Orders</h2>
       <div className="space-y-4">
         {orders.map((order) => (
           <div key={order._id} className="border p-4 rounded shadow-sm">
             <p><b>Order ID:</b> {order._id}</p>
-            <p><b>Status:</b> {order.status}</p>
+            <p ><b>Status:</b> <span className="dark:text-yellow-600">{order.status}</span> </p>
             <p><b>Total:</b> Rs.{order.total}</p>
             <ul className="ml-4 mt-2 list-disc">
               {order.items.map((item, idx) => (

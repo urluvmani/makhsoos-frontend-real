@@ -36,18 +36,18 @@ const Cart = () => {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-4">Your Cart</h2>
+      <h2 className="text-2xl font-bold mb-4 pt-20 ">Your Cart</h2>
       {cart.length === 0 && <p>No items in cart.</p>}
 
       <ul className="space-y-2 mb-6">
         {cart.map((item, index) => (
-          <li key={index} className="border p-3 rounded flex justify-between items-center">
+          <li key={index} className="border border-gray-600 p-3 rounded flex justify-between items-center">
             <div>
-              <p className="font-semibold">{item.name}</p>
-              <p className="text-sm text-gray-600">
+              <p className="font-semibold dark:text-yellow-600">{item.name}</p>
+              <p className="text-sm dark:text-white text-gray-600">
                 Size: <b>{item.size}</b> | Color: <b>{item.color}</b>
               </p>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm dark:text-white text-gray-600">
                 Price: Rs.{item.price} × {item.qty} ={" "}
                 <b>Rs.{item.price * item.qty}</b>
               </p>
@@ -68,32 +68,32 @@ const Cart = () => {
           <h3 className="text-xl font-bold mb-2">Customer Info</h3>
           <input
             placeholder="Name"
-            className="border p-2 w-full mb-2"
+            className="border border-gray-600 p-2 w-full mb-2"
             value={customer.name}
             onChange={(e) => setCustomer({ ...customer, name: e.target.value })}
           />
           <input
             placeholder="Email"
-            className="border p-2 w-full mb-2"
+            className=" border-gray-600 border p-2 w-full mb-2"
             value={customer.email}
             onChange={(e) => setCustomer({ ...customer, email: e.target.value })}
           />
           <input
             placeholder="Phone"
-            className="border p-2 w-full mb-2"
+            className="border border-gray-600 p-2 w-full mb-2"
             value={customer.phone}
             onChange={(e) => setCustomer({ ...customer, phone: e.target.value })}
           />
           <textarea
             placeholder="Address"
-            className="border p-2 w-full mb-2"
+            className="border border-gray-600 resize-none p-2 w-full mb-2"
             value={customer.address}
             onChange={(e) => setCustomer({ ...customer, address: e.target.value })}
           />
           <p className="mb-4 font-bold">Total: Rs. {total}</p>
           <button
             onClick={handleOrder}
-            className="bg-blue-600 text-white px-6 py-2 rounded"
+            className="bg-blue-600 dark:bg-yellow-600 md:font-semibold   text-white px-6 py-2 rounded"
           >
             Place Order
           </button>
