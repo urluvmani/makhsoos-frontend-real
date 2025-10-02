@@ -1,11 +1,24 @@
 import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext";
+import { useTheme } from "../context/ThemeContext";
+
 
 const Navbar = () => {
   const { cart } = useCart();
+  const ThemeToggleButton = () => {
+  const { darkMode, toggleTheme } = useTheme();
+  return (
+    <button
+      onClick={toggleTheme}
+      className="px-4 py-2 bg-gray-300 dark:bg-gray-800 rounded"
+    >
+      {darkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
+    </button>
+  );
+};
 
   return (
-    <header className="bg-white shadow-md">
+    <header className="bg-white shadow-md dark:text-white dark:bg-black">
       <div className="container mx-auto flex justify-between items-center p-4">
         {/* Logo */}
         <Link to="/" className="text-2xl font-bold text-blue-600">
@@ -25,6 +38,10 @@ const Navbar = () => {
             )}
           </Link>
           <Link to="/my-orders" className="hover:text-blue-600">My Orders</Link>
+        <div className="p-4">
+          <ThemeToggleButton />
+        </div>
+          
         </nav>
       </div>
     </header>

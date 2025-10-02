@@ -14,9 +14,17 @@ import AdminOrders from "./pages/AdminOrders";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
+import { ThemeProvider } from "./context/ThemeContext";
+
 function App() {
+
+  
+
+
   return (
+    <ThemeProvider>
     <div className="flex flex-col min-h-screen">
+        
       <Navbar />
       <main className="flex-1 container mx-auto p-4">
         <Routes>
@@ -39,6 +47,7 @@ function App() {
       </main>
       <Footer />
     </div>
+    </ThemeProvider>
   );
 }
 
