@@ -103,13 +103,13 @@ const AdminOrders = () => {
                 <select
                   value={order.status}
                   onChange={(e) => handleStatus(order._id, e.target.value)}
-                  className="border border-gray-300 rounded px-3 py-2 text-sm focus:ring-2 focus:ring-blue-400"
+                  className="border  border-gray-300 rounded px-3 py-2 text-sm focus:ring-2 focus:ring-blue-400"
                 >
-                  <option>Pending</option>
-                  <option>Processing</option>
-                  <option>Shipped</option>
-                  <option>Delivered</option>
-                  <option>Cancelled</option>
+                  <option className="dark:text-white dark:bg-black/50">Pending</option>
+                  <option className="dark:text-white dark:bg-black/50">Processing</option>
+                  <option className="dark:text-white dark:bg-black/50">Shipped</option>
+                  <option className="dark:text-white dark:bg-black/50">Delivered</option>
+                  <option className="dark:text-white dark:bg-black/50">Cancelled</option>
                 </select>
 
                 <button
