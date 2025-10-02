@@ -62,15 +62,7 @@ const MyOrders = () => {
               ))}
             </ul>
 
-            {/* Cancel button only if not already cancelled */}
-            {order.status !== "Cancelled" && (
-              <button
-                onClick={() => handleCancel(order._id)}
-                className="mt-3 bg-red-600 text-white px-4 py-1 rounded"
-              >
-                Cancel Order
-              </button>
-            )}
+           
           </div>
         ))}
       </div>
