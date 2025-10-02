@@ -26,7 +26,7 @@ function App() {
     <div className="flex flex-col min-h-screen dark:text-white dark:bg-black">
         
       <Navbar />
-      <main className="flex-1 container mx-auto p-4">
+      <main className="flex-1 container mx-auto">
         <Routes>
           {/* Customer */}
           <Route path="/" element={<LandingPage />} />

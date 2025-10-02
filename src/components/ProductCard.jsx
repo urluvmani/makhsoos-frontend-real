@@ -2,21 +2,33 @@ import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
   return (
-    <div className="overflow-hidden transition-all border border-gray-700 rounded shadow-sm hover:shadow-md  flex flex-col">
-      <img
-  src={product.images?.[0] || "https://via.placeholder.com/250"}
-  alt={product.name}
-  className="w-full h-48 object-cover rounded hover:scale-[1.04] mb-3"
-/>
+    <div className="group bg-white dark:bg-neutral-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-sm overflow-hidden flex flex-col transform transition-all duration-300 hover:shadow-xl ">
+      {/* Product Image */}
+      <div className="overflow-hidden relative">
+        <img
+          src={product.images?.[0] || "https://via.placeholder.com/250"}
+          alt={product.name}
+          className="w-full h-56 object-cover  object-[0%_32%] transition-transform duration-500 group-hover:scale-110"
+        />
+      </div>
 
-      <h3 className="text-lg pl-2 font-semibold">{product.name}</h3>
-      <p className="text-blue-600 dark:text-white pl-2 font-bold">Rs. {product.price}</p>
-      <Link
-        to={`/products/${product._id}`}
-        className="mt-auto bg-blue-600 md:font-semibold dark:bg-yellow-600 text-white px-4 py-2 rounded text-center"
-      >
-        View Details
-      </Link>
+      {/* Product Info */}
+      <div className="flex flex-col flex-grow p-4">
+        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
+          {product.name}
+        </h3>
+        <p className="text-blue-600 dark:text-yellow-500 font-bold text-base mb-4">
+          Rs. {product.price}
+        </p>
+
+        {/* Button */}
+        <Link
+          to={`/products/${product._id}`}
+          className="mt-auto inline-block text-center bg-black hover:bg-black/70 dark:bg-yellow-600 dark:hover:bg-yellow-500 text-white font-semibold px-4 py-2 rounded-lg transition-colors duration-300"
+        >
+          View Details
+        </Link>
+      </div>
     </div>
   );
 };

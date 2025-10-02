@@ -9,33 +9,32 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="bg-white shadow-md dark:text-white dark:bg-neutral-900 fixed top-0 left-0 w-full z-50">
-      <div className="container mx-auto flex justify-between items-center p-4">
+    <header className="backdrop-blur-md bg-white/80 dark:bg-neutral-900/80 shadow-md dark:text-white fixed top-0 left-0 w-full z-50 transition-all duration-300">
+      <div className="container mx-auto flex justify-between items-center py-4 px-6">
         {/* Logo */}
         <Link
           to="/"
-          className="text-2xl font-bold text-blue-600 dark:text-yellow-600"
+          className="md:text-3xl text-2xl font-extrabold tracking-wide text-yellow-600 dark:text-yellow-500 hover:scale-105 transition-transform duration-300"
         >
           Makhsoos
           <span className="text-gray-800 dark:text-white">Store</span>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-6">
-          <Link to="/" className="dark:hover:text-yellow-300">
+        <nav className="hidden md:flex items-center gap-8 font-medium text-lg">
+          <Link to="/" className="hover:text-blue-600 dark:hover:text-yellow-400 transition-colors">
             Home
           </Link>
-          <Link to="/products" className="dark:hover:text-yellow-300">
+          <Link to="/products" className="hover:text-blue-600 dark:hover:text-yellow-400 transition-colors">
             Products
           </Link>
-          
-          <Link to="/my-orders" className="dark:hover:text-yellow-300">
+          <Link to="/my-orders" className="hover:text-blue-600 dark:hover:text-yellow-400 transition-colors">
             My Orders
-          </Link> 
-          <Link to="/cart" className="relative dark:hover:text-yellow-300 mr-5">
-            <CiShoppingCart className="w-7 h-7"/>
+          </Link>
+          <Link to="/cart" className="relative hover:text-blue-600 dark:hover:text-yellow-400 transition-colors">
+            <CiShoppingCart className="w-7 h-7" />
             {cart.length > 0 && (
-              <span className="absolute -top-2 -right-3 bg-red-600 text-white rounded-full px-2 text-sm">
+              <span className="absolute -top-2 -right-3 bg-red-600 text-white font-bold rounded-full px-2 text-xs shadow-md">
                 {cart.length}
               </span>
             )}
@@ -43,57 +42,54 @@ const Navbar = () => {
         </nav>
 
         {/* Mobile Hamburger Button */}
-       <div className="flex md:hidden gap-3"> 
-                 <Link to="/cart" className="relative md:hidden hover:text-blue-600">
-           <CiShoppingCart className="w-7 h-7"/>
+        <div className="flex md:hidden gap-4 items-center">
+          {/* Cart Icon for Mobile */}
+          <Link to="/cart" className="relative hover:text-blue-600">
+            <CiShoppingCart className="w-7 h-7" />
             {cart.length > 0 && (
-              <span className="absolute  -top-2 -right-3 bg-red-600 text-white rounded-full px-2 text-sm">
+              <span className="absolute -top-2 -right-3 bg-red-600 text-white font-bold rounded-full px-2 text-xs shadow-md">
                 {cart.length}
               </span>
             )}
           </Link>
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-2xl focus:outline-none"
-        >
-          <FiMenu />
-        </button>
-</div>
+
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden text-3xl focus:outline-none hover:text-blue-600 dark:hover:text-yellow-400 transition-colors"
+          >
+            {isOpen ? <FiX /> : <FiMenu />}
+          </button>
+        </div>
       </div>
 
-      {/* Mobile Nav (Slide Down) */}
+      {/* Mobile Nav (Slide Down with Animation) */}
       <div
-        className={`md:hidden absolute top-0 left-0 w-full bg-white dark:bg-neutral-900 shadow-md transform transition-transform duration-300 ease-in-out ${
+        className={`md:hidden absolute top-0 left-0 w-full h-[35vh] bg-white dark:bg-neutral-900 transform transition-transform duration-500 ease-in-out ${
           isOpen ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        {/* Close Button */}
-        <div className="flex justify-between items-center p-4 border-b">
-          <h2 className="text-xl font-bold text-blue-600 dark:text-yellow-600">
+        {/* Close Header */}
+        <div className="flex justify-between items-center px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+          <h2 className="text-xl font-bold text-blue-600 dark:text-yellow-500">
             Menu
           </h2>
-          <button onClick={() => setIsOpen(false)} className="text-2xl">
+          <button onClick={() => setIsOpen(false)} className="text-3xl hover:text-red-600 transition-colors">
             <FiX />
           </button>
         </div>
 
         {/* Links */}
-        <div className="flex flex-col gap-6 p-6 text-lg">
-          <Link to="/" onClick={() => setIsOpen(false)} className="hover:text-blue-600 mr-5">
+        <div className="flex flex-col gap-6 px-6 py-8 text-lg font-medium">
+          <Link to="/" onClick={() => setIsOpen(false)} className="hover:text-blue-600 dark:hover:text-yellow-400 transition-colors">
             Home
           </Link>
-          <Link to="/products" onClick={() => setIsOpen(false)} className="hover:text-blue-600 mr-5">
+          <Link to="/products" onClick={() => setIsOpen(false)} className="hover:text-blue-600 dark:hover:text-yellow-400 transition-colors">
             Products
           </Link>
-          <Link to="/cart" onClick={() => setIsOpen(false)} className="relative  mr-5hover:text-blue-600">
+          <Link to="/cart" onClick={() => setIsOpen(false)} className="hover:text-blue-600 dark:hover:text-yellow-400 transition-colors">
             Cart
-            {cart.length > 0 && (
-              <span className="absolute -top-2 -right-2 bg-red-600 text-white rounded-full px-2 text-sm">
-                {cart.length}
-              </span>
-            )}
           </Link>
-          <Link to="/my-orders" onClick={() => setIsOpen(false)} className="hover:text-blue-600 mr-5">
+          <Link to="/my-orders" onClick={() => setIsOpen(false)} className="hover:text-blue-600 dark:hover:text-yellow-400 transition-colors">
             My Orders
           </Link>
         </div>

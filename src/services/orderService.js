@@ -11,3 +11,5 @@ export const downloadReceipt = async (id) => {
   });
   return response.data;
 };
+
+export const cancelOrder = (id) => API.put(`/orders/${id}/cancel`);
