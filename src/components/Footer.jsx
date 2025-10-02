@@ -1,4 +1,4 @@
-import { FaFacebookF, FaInstagram, FaEnvelope } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaEnvelope , FaWhatsapp } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -27,7 +27,7 @@ const Footer = () => {
           </a>
 
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/makhsoos_official/"
             target="_blank"
             rel="noreferrer"
             className="flex items-center gap-2 hover:text-pink-500 transition-colors duration-300 relative group"
@@ -38,11 +38,14 @@ const Footer = () => {
           </a>
 
           <a
-            href="mailto:support@makhsoos.com"
+            href="https://wa.me/923280362181?text=Hello%20I%20want%20to%20contact%20you
+"
+            target="_blank"
+
             className="flex items-center gap-2 hover:text-green-500 transition-colors duration-300 relative group"
           >
-            <FaEnvelope />
-            <span className="text-sm">Contact</span>
+            <FaWhatsapp />
+            <span className="text-sm">WhatsApp</span>
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-green-500 group-hover:w-full transition-all duration-300"></span>
           </a>
         </div>
