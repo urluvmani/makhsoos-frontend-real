@@ -1,6 +1,7 @@
 import { useCart } from "../context/CartContext";
 import { placeOrder } from "../services/orderService";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 const Cart = () => {
   const { cart, removeFromCart, clearCart } = useCart();
@@ -13,7 +14,6 @@ const Cart = () => {
 
   const total = cart.reduce((acc, item) => acc + item.price * item.qty, 0);
 
-  // ✅ validation check
   const isFormValid =
     customer.name.trim() !== "" &&
     customer.phone.trim() !== "" &&
@@ -34,7 +34,6 @@ const Cart = () => {
         total,
       });
 
-      // ✅ localStorage میں order history save کریں
       const existing = JSON.parse(localStorage.getItem("orders") || "[]");
       localStorage.setItem("orders", JSON.stringify([...existing, data]));
 
@@ -46,14 +45,81 @@ const Cart = () => {
     }
   };
 
-  // ✅ Phone input handler (only numbers allowed)
   const handlePhoneChange = (e) => {
-    const value = e.target.value.replace(/\D/g, ""); // non-numeric remove
+    const value = e.target.value.replace(/\D/g, "");
     setCustomer({ ...customer, phone: value });
   };
 
   return (
     <div className="min-h-screen pt-20 md:pb-10 px-6 md:px-12">
+      {/* 🔑 SEO META TAGS */}
+      <Helmet>
+        {/* ✅ Basic SEO */}
+        <title>Shopping Cart | Makhsoos Store</title>
+        <meta
+          name="description"
+          content="Review your selected men’s dressing items in the shopping cart. Proceed to checkout and place your order for premium men’s fashion."
+        />
+        <meta
+          name="keywords"
+          content="men's dressing cart, checkout men's clothing, buy men's fashion online, makhsoos store shopping cart"
+        />
+        <meta name="robots" content="noindex, follow" />
+        {/* ❌ Tip: Checkout/Cart pages ko Google par index karna zaroori nahi hota. */}
+
+        {/* ✅ Open Graph */}
+        <meta property="og:title" content="Shopping Cart | Makhsoos Store" />
+        <meta
+          property="og:description"
+          content="Check your selected men’s fashion items and proceed to checkout."
+        />
+        <meta property="og:image" content="https://makhsoos.vercel.app/images/og-cart.jpg" />
+        <meta property="og:url" content="https://makhsoos.vercel.app/cart" />
+        <meta property="og:type" content="website" />
+
+        {/* ✅ Twitter Card */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Shopping Cart | Makhsoos Store" />
+        <meta
+          name="twitter:description"
+          content="Your selected men’s clothing items are ready for checkout."
+        />
+        <meta name="twitter:image" content="https://makhsoos.vercel.app/images/og-cart.jpg" />
+
+        {/* ✅ Canonical */}
+        <link rel="canonical" href="https://makhsoos.vercel.app/cart" />
+
+        {/* ✅ JSON-LD Breadcrumb + CartPage */}
+        <script type="application/ld+json">
+          {`
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://makhsoos.vercel.app/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Products",
+                "item": "https://makhsoos.vercel.app/products"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Cart",
+                "item": "https://makhsoos.vercel.app/cart"
+              }
+            ]
+          }
+          `}
+        </script>
+      </Helmet>
+
       <h2 className="text-3xl font-bold mb-6 text-black dark:text-yellow-600">
         Your Cart
       </h2>

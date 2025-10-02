@@ -16,38 +16,38 @@ import Footer from "./components/Footer";
 
 import { ThemeProvider } from "./context/ThemeContext";
 
+// ✅ HelmetProvider import
+import { HelmetProvider } from "react-helmet-async";
+
 function App() {
-
-  
-
-
   return (
-    <ThemeProvider>
-    <div className="flex flex-col min-h-screen dark:text-white dark:bg-black">
-        
-      <Navbar />
-      <main className="flex-1 container mx-auto">
-        <Routes>
-          {/* Customer */}
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/products/:id" element={<ProductDetail />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/my-orders" element={<MyOrders />} /> 
+    <HelmetProvider>
+      <ThemeProvider>
+        <div className="flex flex-col min-h-screen dark:text-white dark:bg-black">
+          <Navbar />
+          <main className="flex-1 container mx-auto">
+            <Routes>
+              {/* Customer */}
+              <Route path="/" element={<LandingPage />} />
+              <Route path="/products" element={<Products />} />
+              <Route path="/products/:id" element={<ProductDetail />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/my-orders" element={<MyOrders />} />
 
-          {/* Admin */}
-          <Route path="/admin/login" element={<AdminLogin />} />
-           <Route element={<ProtectedRoute />}>
-          <Route path="/admin/dashboard" element={<AdminDashboard />}>
-            <Route path="products" element={<AdminProducts />} />
-            <Route path="orders" element={<AdminOrders />} />
-            </Route>
-          </Route>
-        </Routes>
-      </main>
-      <Footer />
-    </div>
-    </ThemeProvider>
+              {/* Admin */}
+              <Route path="/admin/login" element={<AdminLogin />} />
+              <Route element={<ProtectedRoute />}>
+                <Route path="/admin/dashboard" element={<AdminDashboard />}>
+                  <Route path="products" element={<AdminProducts />} />
+                  <Route path="orders" element={<AdminOrders />} />
+                </Route>
+              </Route>
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </ThemeProvider>
+    </HelmetProvider>
   );
 }
 

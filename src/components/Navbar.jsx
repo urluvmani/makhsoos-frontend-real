@@ -73,9 +73,9 @@ const Navbar = () => {
           <h2 className="text-xl font-bold text-blue-600 dark:text-yellow-500">
             Menu
           </h2>
-          <button onClick={() => setIsOpen(false)} className="text-3xl hover:text-red-600 transition-colors">
+          <div onClick={() => setIsOpen(false)} className="text-3xl hover:text-red-600 transition-colors">
             <FiX />
-          </button>
+          </div>
         </div>
 
         {/* Links */}

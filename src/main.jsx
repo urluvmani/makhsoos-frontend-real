@@ -5,10 +5,15 @@ import App from "./App";
 import "./styles/global.css";
 import { CartProvider } from "./context/CartContext";
 
+// ✅ SEO Provider
+import { HelmetProvider } from "react-helmet-async";
+
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
-    <CartProvider>
-      <App />
-    </CartProvider>
-  </BrowserRouter>
+  <HelmetProvider>
+    <BrowserRouter>
+      <CartProvider>
+        <App />
+      </CartProvider>
+    </BrowserRouter>
+  </HelmetProvider>
 );
