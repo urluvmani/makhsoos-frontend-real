@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { placeOrder } from "../services/orderService";
 import { useState } from "react";
@@ -124,8 +125,13 @@ const Cart = () => {
         Your Cart
       </h2>
 
-      {cart.length === 0 && (
+      {cart.length === 0 && (<>
+      <div className="flex flex-col justify-around">
+        
         <p className="text-gray-600 dark:text-white">No items in cart.</p>
+        <Link className="mt-90 w-fit px-5 py-4 border rounded-2xl bg-neutral-800" to={"/my-orders"}>👉Your Orders</Link>
+      </div>
+        </>
       )}
 
       <ul className="space-y-4 mb-6">
