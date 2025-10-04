@@ -129,7 +129,7 @@ const Cart = () => {
       <div className="flex flex-col justify-around">
         
         <p className="text-gray-600 dark:text-white">No items in cart.</p>
-        <Link className="mt-90 w-fit px-5 py-4 border rounded-2xl bg-neutral-800" to={"/my-orders"}>👉Your Orders</Link>
+        <Link className="mt-90 w-fit dark:bg-neutral-400 px-5 py-4 border rounded-2xl bg-neutral-300" to={"/my-orders"}>👉Your Orders</Link>
       </div>
         </>
       )}
