@@ -18,4 +18,4 @@ The application was entirely self-built, integrating GPT-powered automation for 
 
 🎯 Achieved zero downtime deployment and instant load experience (<1.5s) on desktop and mobile environments.
 
-👉🚀here the link of live website > https://makhsoos.vercel.app/
+
